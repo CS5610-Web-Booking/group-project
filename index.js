@@ -1,26 +1,35 @@
 import express from 'express';
-const app = express();
+import dotenv from "dotenv";
 import mongoose from "mongoose";
+// import authRoute from "./routes/auth"
 
-const DB_CONNECTION_STRING='mongodb+srv://sunqingqing168:supersecretpassword@cluster0.xjvjium.mongodb.net/booking?retryWrites=true&w=majority'
-// const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/booking'
-const CONNECTION_STRING = DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/booking'
-// for local test only 
-// const CONNECTION_STRING = 'mongodb://127.0.0.1:27017/booking'
+const app = express();
+dotenv.config();
+
+const CONNECTION_STRING = process.env.MONGO || 'mongodb://127.0.0.1:27017/booking'
 
 const connect = async () => {
     try {
         // connect local database
-        await mongoose.connect(CONNECTION_STRING) // process.env.MONGO remote later
-        console.log("Connected database")
+        await mongoose.connect(CONNECTION_STRING)
     } catch (error) {
         throw error;
     }
 };
 
+// listen connect to databse, success or fail
+mongoose.connection.on("disconnected", ()=>{
+    console.log("fail to connect databse")
+})
+
+mongoose.connection.on("connected", ()=>{
+    console.log("success to connect databse")
+})
+
 
 app.get('/', (req, res) => {res.send('Welcome to Full Stack Development!')})
 
 app.listen(6600, ()=>{
-    console.log("Connected")
+    connect()
+    console.log("Connected app server")
 });
