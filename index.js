@@ -1,7 +1,8 @@
 import express from 'express';
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-// import authRoute from "./routes/auth.js"
+
+import authRoute from "./routes/auth.js";
 
 const app = express();
 dotenv.config();
@@ -26,6 +27,9 @@ mongoose.connection.on("connected", ()=>{
     console.log("success to connect databse")
 })
 
+
+// middlewares
+app.use("/api/auth", authRoute);
 
 app.get('/', (req, res) => {res.send('Welcome to Full Stack Development!')})
 
