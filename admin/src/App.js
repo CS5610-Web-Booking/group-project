@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import Login from "./pages/login/Login";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import "./style/dark.scss";
+import { useContext } from "react";
+import { DarkModeContext } from "./context/darkModeContext";
+import { AuthContext } from "./context/AuthContext";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const { darkMode } = useContext(DarkModeContext);
+
+    const ProtectedRoute = ({ children }) => {
+        const { user } = useContext(AuthContext);
+
+        if (!user) {
+            return <Navigate to="/login" />;
+        }
+
+        return children;
+    };
+
+    return (
+        <div className={darkMode ? "app dark" : "app"}>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/">
+                        <Route path="login" element={<Login />} />
+                        </Route>
+                </Routes>
+            </BrowserRouter>
+        </div>
+    );
 }
 
 export default App;
+
