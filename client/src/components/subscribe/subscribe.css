@@ -1,0 +1,26 @@
+.mail {
+    margin-top: 50px;
+    background-color: #008B8B;
+    color: white;
+    padding: 50px;
+    border-radius: 5px;
+}
+
+.mailTitle {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.mailDesc {
+    font-size: 1.25rem;
+}
+
+.form-control {
+    height: 50px;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    height: 50px;
+    border-radius: 5px;
+}
