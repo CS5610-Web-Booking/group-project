@@ -1,6 +1,6 @@
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
-import SubscribeComponent from "../../components/subscribe/subscribe";
+import SubscribeComponent from "../../components/subscribe/Subscribe";
 import FooterComponent from "../../components/footer/footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faCircleArrowLeft, faCircleArrowRight, faCircleXmark, faLocationDot,} from "@fortawesome/free-solid-svg-icons";

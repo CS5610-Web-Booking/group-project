@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const SearchItem = ({ item }) => {
     return (
-        <div className="border rounded p-3 d-flex justify-content-between gap-3 mb-3">
+        <div className="border rounded p-3 d-flex justify-content-between gap-3 mb-3 mt-2">
             <img src={item.photos[0]} alt="" className="flex-shrink-0 rounded" style={{ width: '200px', height: '200px', objectFit: 'cover' }} />
             <div className="flex-grow-1 d-flex flex-column gap-3">
                 <h1 className="h5 text-primary m-0">{item.name}</h1>
