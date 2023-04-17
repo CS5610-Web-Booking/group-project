@@ -13,8 +13,12 @@ import { DateRange } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import {format} from 'date-fns';
+import { useNavigate } from "react-router-dom";
+import { SearchContext } from "../../context/SearchContext";
+import { AuthContext } from "../../context/AuthContext";
 
 const Header = ({type}) => {
+    const [destination, setDestination] = useState("");
     const [openDate, setOpenDate] = useState(false);
     const[date, setDate] = useState([{
         startDate: new Date(),
@@ -28,6 +32,9 @@ const Header = ({type}) => {
         room:1,
     });
 
+     const navigate = useNavigate();
+     const { user } = useContext(AuthContext);
+
     const handleOption = (name, operation) => {
         setOptions((prev) => {
             return {
@@ -35,6 +42,13 @@ const Header = ({type}) => {
                 [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
             };
         });
+    };
+
+    const { dispatch } = useContext(SearchContext);
+
+    const handleSearch = () => {
+     dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
+     navigate("/hotels", { state: { destination, dates, options } });
     };
 
     return (
@@ -90,25 +104,25 @@ const Header = ({type}) => {
                             <div className="optionItem">
                                 <span className="optionText">Adult</span>
                                 <button disabled={options.adult <= 1} className="optionCounterButton" onClick={()=>handleOption("adult", "d")}>-</button>
-                                <span className="optionCounterNumber">1</span>
+                                <span className="optionCounterNumber"></span>
                                 <button className="optionCounterButton " onClick={()=>handleOption("adult", "i")}>+</button>
                             </div>
                             <div className="optionItem">
                                 <span className="optionText">Children</span>
                                 <button disabled={options.children <= 0} className="optionCounterButton" onClick={()=>handleOption("children", "d")}>-</button>
-                                <span className="optionCounterNumber">0</span>
+                                <span className="optionCounterNumber"></span>
                                 <button className="optionCounterButton" onClick={()=>handleOption("children", "i")}>+</button>
                             </div>
                             <div className="optionItem">
                                 <span className="optionText">Room</span>
                                 <button disabled={options.room <= 1} className="optionCounterButton" onClick={()=>handleOption("room", "d")}>-</button>
-                                <span className="optionCounterNumber">1</span>
+                                <span className="optionCounterNumber"></span>
                                 <button className="optionCounterButton" onClick={()=>handleOption("room", "i")}>+</button>
                             </div>
                        </div>}
                     </div>
                     <div className="headerSearchItem">
-                       <button className="headerButton1">Search</button>
+                       <button className="headerBtn" onClick={handleSearch}>Search</button>
                     </div>
             </div> </>}
          </div>
