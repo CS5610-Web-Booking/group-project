@@ -11,6 +11,10 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.3.5",
+<<<<<<< HEAD
+=======
+    "bootstrap": "^5.2.3",
+>>>>>>> yingzi-react
     "date-fns": "^2.29.3",
     "react": "^18.2.0",
     "react-date-range": "^1.4.0",

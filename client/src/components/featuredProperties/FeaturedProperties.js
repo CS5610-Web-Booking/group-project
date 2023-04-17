@@ -29,5 +29,4 @@ const FeaturedProperties = () => {
         </>
       )}
     </div>);};
-
 export default FeaturedProperties;
