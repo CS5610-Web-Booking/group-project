@@ -5,8 +5,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 import "./reserve.css";
-import {SearchContext} from "../context/SearchContext";
-import useFetch from "../hooks/useFetch";
+import {SearchContext} from "../../context/SearchContext";
+import useFetch from "../../hooks/useFetch";
 
 const ReserveComponent= ({ setOpen, hotelId }) => {
     const [selectedRooms, setSelectedRooms] = useState([]);

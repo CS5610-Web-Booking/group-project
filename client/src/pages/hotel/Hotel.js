@@ -9,7 +9,7 @@ import useFetch from "../../hooks/useFetch";
 import { useLocation, useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
-import ReserveComponent from "../../reserve/reserve";
+import ReserveComponent from "../../components/reserve/reserve";
 
 const Hotel = () => {
     const location = useLocation();
