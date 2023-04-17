@@ -7,7 +7,7 @@ const List = () => {
         <div className="navbar">
             <div className="navCon">
                 <Link to="/" style={{color:"inherit", textDecoration:"none"}}>
-                <span className="logo">Trip Booking</span>
+                <p className="font-weight-700;">Hotel Booking</p>
                 </Link>
                 <div className="navItems">
                     <button className="navButton">Register</button>
