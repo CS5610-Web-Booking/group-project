@@ -1,26 +1,31 @@
 import { Link } from "react-router-dom";
+import {useContext} from "react";
+import {AuthContext} from "../../context/AuthContext";
 
 const SearchItem = ({ item }) => {
+    const {user} = useContext(AuthContext);
+    const grossAmountPerNight = user.isVIP
+        ? item.gross_amount_per_night.value * 0.9
+        : item.gross_amount_per_night.value;
     return (
         <div className="border rounded p-3 d-flex justify-content-between gap-3 mb-3 mt-2">
-            <img src={item.photos[0]} alt="" className="flex-shrink-0 rounded" style={{ width: '200px', height: '200px', objectFit: 'cover' }} />
+            <img src={item.main_photo_url} alt="" className="flex-shrink-0 rounded" style={{ width: '200px', height: '200px', objectFit: 'cover' }} />
             <div className="flex-grow-1 d-flex flex-column gap-3">
-                <h1 className="h5 text-primary m-0">{item.name}</h1>
-                <span className="text-muted fs-6">{item.distance}m from center</span>
-                <span className="bg-success text-white p-1 rounded-2 fs-6">Free airport taxi</span>
-                <span className="fw-bold fs-6">Studio Apartment with Air conditioning</span>
-                <span className="fs-6">{item.desc}</span>
+                <h1 className="h5 text-primary m-0">{item.hotel_name}</h1>
+                <span className="text-muted fs-6">{item.distance_to_cc_formatted} from center</span>
+                <span className="fs-6">{item.address}, {item.zip}, {item.country_trans}</span>
                 <span className="text-success fw-bold fs-6">Free cancellation, reserve it now!</span>
             </div>
             <div className="flex-shrink-0 d-flex flex-column justify-content-between">
-                {item.rating && <div className="d-flex flex-column gap-1">
-                    <span className="fw-bold text-success">Excellent</span>
-                    <button className="btn btn-primary">{item.rating}</button>
-                </div>}
+                <div className="d-flex flex-column gap-1">
+                    <span className="fw-bold text-success">{item.review_score_word}</span>
+                    <button className="btn btn-primary">{item.review_score}</button>
+                </div>
                 <div className="text-end d-flex flex-column gap-1">
-                    <span className="fs-4">${item.cheapestPrice}</span>
-                    <span className="text-muted fs-6">Taxes and fees included</span>
-                    <Link to={`/hotels/${item._id}`}>
+                    {user.isVIP && <span className="text-danger fs-6">You save 10% as our VIP</span>}
+                    <span className="fs-4">${grossAmountPerNight} {item.gross_amount_per_night.currency}</span>
+                    <span className="text-muted fs-6">With taxes and fees included</span>
+                    <Link to={`/hotels/${item.id}`}>
                         <button className="btn btn-primary">See availability</button>
                     </Link>
                 </div>
