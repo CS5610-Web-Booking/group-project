@@ -52,6 +52,7 @@ const Header = ({type}) => {
         navigate("/login");
     };
 
+
     return (
         <div className="header">
           <div className={type==="list" ?"headerCon listMode" : "headerCon"}>

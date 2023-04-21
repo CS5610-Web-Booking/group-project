@@ -9,6 +9,9 @@ const List = () => {
     const handleClick = () => {
         navigate("/login");
     }
+    const handleClickRegister = () => {
+        navigate("/register");
+    }
     const { user } = useContext(AuthContext);
     return (
         <div className="navbar">
@@ -17,7 +20,7 @@ const List = () => {
                 <p className="font-weight-700;">Hotel Booking</p>
                 </Link>
                 {user ? user.username : (<div className="navItems">
-                    <button className="navButton">Register</button>
+                    <button onClick ={handleClickRegister} className="navButton">Register</button>
                     <button onClick={handleClick} className="navButton">Sign in</button>
                 </div>
                 )}
