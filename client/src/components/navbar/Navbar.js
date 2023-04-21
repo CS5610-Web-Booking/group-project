@@ -1,18 +1,26 @@
 import"./navbar.css"
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
+import { useContext } from 'react';
 
 const List = () => {
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate("/login");
+    }
+    const { user } = useContext(AuthContext);
     return (
         <div className="navbar">
             <div className="navCon">
                 <Link to="/" style={{color:"inherit", textDecoration:"none"}}>
                 <p className="font-weight-700;">Hotel Booking</p>
                 </Link>
-                <div className="navItems">
+                {user ? user.username : (<div className="navItems">
                     <button className="navButton">Register</button>
-                    <button className="navButton">Sign in</button>
+                    <button onClick={handleClick} className="navButton">Sign in</button>
                 </div>
+                )}
             </div>
         </div>
 
