@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, {useContext, useState} from "react";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
 import "./list.css";
 import SearchItem from "../../components/searchItem/searchItem";
+import {AuthContext} from "../../context/AuthContext";
 
 
 const getDestinationId = async (city) => {

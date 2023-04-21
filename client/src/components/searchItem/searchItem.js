@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
+import {useContext} from "react";
+import {AuthContext} from "../../context/AuthContext";
 
 const SearchItem = ({ item }) => {
+    const {user} = useContext(AuthContext);
+    const grossAmountPerNight = user.isVIP
+        ? item.gross_amount_per_night.value * 0.9
+        : item.gross_amount_per_night.value;
     return (
         <div className="border rounded p-3 d-flex justify-content-between gap-3 mb-3 mt-2">
             <img src={item.main_photo_url} alt="" className="flex-shrink-0 rounded" style={{ width: '200px', height: '200px', objectFit: 'cover' }} />
@@ -11,13 +17,14 @@ const SearchItem = ({ item }) => {
                 <span className="text-success fw-bold fs-6">Free cancellation, reserve it now!</span>
             </div>
             <div className="flex-shrink-0 d-flex flex-column justify-content-between">
-                {item.rating && <div className="d-flex flex-column gap-1">
+                <div className="d-flex flex-column gap-1">
                     <span className="fw-bold text-success">{item.review_score_word}</span>
                     <button className="btn btn-primary">{item.review_score}</button>
-                </div>}
+                </div>
                 <div className="text-end d-flex flex-column gap-1">
-                    <span className="fs-4">${item.gross_amount_per_night.value} {item.gross_amount_per_night.currency}</span>
-                    <span className="text-muted fs-6">Taxes and fees included</span>
+                    {user.isVIP && <span className="text-danger fs-6">You save 10% as our VIP</span>}
+                    <span className="fs-4">${grossAmountPerNight} {item.gross_amount_per_night.currency}</span>
+                    <span className="text-muted fs-6">With taxes and fees included</span>
                     <Link to={`/hotels/${item.id}`}>
                         <button className="btn btn-primary">See availability</button>
                     </Link>
