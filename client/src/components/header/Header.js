@@ -48,6 +48,10 @@ const Header = ({type}) => {
         navigate("/hotels", { state: { destination, dates, options } });
     };
 
+    const onClickLoginRegister = () => {
+        navigate("/login");
+    };
+
     return (
         <div className="header">
           <div className={type==="list" ?"headerCon listMode" : "headerCon"}>
@@ -61,7 +65,7 @@ const Header = ({type}) => {
                 <>
                 <h1 className="headerTitle">Best Choice For Your Hotel Booking Experience</h1>
                 <p className="headerDescription">Join Us Today For 15% Off!</p>
-                <button>Sign in / Register</button>
+                { !user &&(<button onClick={onClickLoginRegister}>Sign in / Register</button>)}
                 <div className="headerSearch">
                     <div className="headerSearchItem">
                         <FontAwesomeIcon icon={faBed} className="headerIcon"/>
