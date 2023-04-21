@@ -52,7 +52,7 @@ const Register = () => {
           onChange={handleChange}
           className="Register_Input"
         />
-        <label for="country">Email:</label>
+        <label for="country">Country:</label>
         <input
           type="text"
           placeholder="country"
