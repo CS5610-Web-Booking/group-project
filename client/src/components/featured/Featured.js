@@ -21,7 +21,7 @@ const Featured = () => {
                 <div className="featuredTitles">
                     <h1>Paris, France</h1>
                  </div>
-            </div>)
+            </div>
         </div>
    );
 };
