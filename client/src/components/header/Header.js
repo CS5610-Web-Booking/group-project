@@ -65,7 +65,7 @@ const Header = ({type}) => {
             {type !== "list" &&
                 <>
                 <h1 className="headerTitle">Best Choice For Your Hotel Booking Experience</h1>
-                <p className="headerDescription">Join Us Today For 15% Off!</p>
+                <p className="headerDescription">Don't miss out on this fantastic offer. Join us today and save big!</p>
                 { !user &&(<button onClick={onClickLoginRegister}>Sign in / Register</button>)}
                 <div className="headerSearch">
                     <div className="headerSearchItem">
