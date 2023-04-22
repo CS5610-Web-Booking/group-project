@@ -1,7 +1,7 @@
 const FooterComponent = () => {
     return (
-        <div className="w-100 fs-12" style={{maxWidth: '1024px'}} >
-                <div className="w-100 d-flex justify-content-between">
+        <div className="w-100 fs-12 mt-3" >
+                <div className="w-100 d-flex justify-content-around ms-auto me-auto" style={{maxWidth: '1024px'}}>
                     <ul className="fList text-muted">
                         <li className="fListItem">Countries</li>
                         <li className="fListItem">Cities</li>
@@ -28,7 +28,7 @@ const FooterComponent = () => {
                         <li className="fListItem">Terms & conditions</li>
                     </ul>
                 </div>
-                <p className="mt-8 mb-8 text-muted text-center">Copyright © 2023 WEBDEV5610</p>
+                <p className="w-100 mt-8 mb-8 text-muted text-center">Copyright © 2023 WEBDEV5610</p>
         </div>
     );
 };
