@@ -36,7 +36,7 @@ const Register = () => {
     <div className="Container">
       <div className="lContainer">
         <h1>Register</h1>
-        <label for="username">Username:</label>
+        <label htmlFor="username">Username:</label>
         <input
           type="text"
           placeholder="username"
@@ -44,7 +44,7 @@ const Register = () => {
           onChange={handleChange}
           className="Register_Input"
         />
-        <label for="email">Email:</label>
+        <label htmlFor="email">Email:</label>
         <input
           type="email"
           placeholder="email"
@@ -52,7 +52,7 @@ const Register = () => {
           onChange={handleChange}
           className="Register_Input"
         />
-        <label for="country">Country:</label>
+        <label htmlFor="country">Country:</label>
         <input
           type="text"
           placeholder="country"
@@ -60,7 +60,7 @@ const Register = () => {
           onChange={handleChange}
           className="Register_Input"
         />
-        <label for="city">City:</label>
+        <label htmlFor="city">City:</label>
         <input
           type="text"
           placeholder="city"
@@ -68,7 +68,7 @@ const Register = () => {
           onChange={handleChange}
           className="Register_Input"
         />
-        <label for="phone">Phone:</label>
+        <label htmlFor="phone">Phone:</label>
         <input
           type="text"
           placeholder="phone"
@@ -76,7 +76,7 @@ const Register = () => {
           onChange={handleChange}
           className="Register_Input"
         />
-        <label for="password">Password:</label>
+        <label htmlFor="password">Password:</label>
         <input
           type="password"
           placeholder="password"
