@@ -4,6 +4,10 @@
     padding: 5px;
 }
 
+.lsInput::placeholder {
+    color: black;
+}
+
 .listSearch {
     flex: 1;
     background-color: #febb02;
