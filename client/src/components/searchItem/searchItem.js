@@ -4,7 +4,7 @@ import {AuthContext} from "../../context/AuthContext";
 
 const SearchItem = ({ item }) => {
     const {user} = useContext(AuthContext);
-    const grossAmountPerNight = user.isVIP
+    const grossAmountPerNight = user != null && user.isVIP
         ? item.price_breakdown.all_inclusive_price * 0.9
         : item.price_breakdown.all_inclusive_price;
     // const grossAmountPerNight = item.price_breakdown.all_inclusive_price * 0.9;
@@ -28,8 +28,8 @@ const SearchItem = ({ item }) => {
                 </div>
 
                 <div className="text-end d-flex flex-column gap-1">
-                    {user.isVIP && <span className="text-danger fs-6">You save 10% as our VIP</span>}
-                    <span className="fs-4">${grossAmountPerNight.toFixed(2)} {item.price_breakdown.currency}</span>
+                    {user != null && user.isVIP && <span className="text-danger fs-6">You save 10% as our VIP</span>}
+                    <span className="fs-4">{grossAmountPerNight.toFixed(2)} {item.price_breakdown.currency}</span>
                     <span className="text-muted fs-6">With taxes and fees included</span>
                     <Link to={`/hotels/${item.id}`}>
                         <button className="btn btn-primary">See availability</button>

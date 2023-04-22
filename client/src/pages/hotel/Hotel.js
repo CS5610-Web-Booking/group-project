@@ -19,7 +19,7 @@ const Hotel = () => {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '8954b980cemsh2ee08fc1a6904c3p180332jsn62bc812c340e',
+            'X-RapidAPI-Key': 'dc90d1b602msh8fc39ffcb89693ap1af829jsna146b6e22a0e',
             'X-RapidAPI-Host': 'booking-com.p.rapidapi.com'
         }
     };
@@ -55,31 +55,26 @@ const Hotel = () => {
                     <span className="visually-hidden">Loading...</span>
                 </div>
             ) : (
-                <div className="container py-5">
-                    <div className="row mx-auto">
-                        <div className="col-md-8 mx-auto">
-                            <div className="d-flex align-items-center justify-content-between mb-4">
-                                <h1 className="h3">{data.name}</h1>
+                <div className="container py-5 text-center">
+                        <h1 className="mb-2">{data.name}</h1>
+                            <div className="mb-2 mt-2">
                                 <div>
-                                    <p>
+                                    <div>
                                         <FontAwesomeIcon icon={faLocationDot} className="me-2" />
-                                        <span>{data.address}, {data.city}, {data.country}</span>
-                                    </p>
-                                    <FontAwesomeIcon icon={faStar} className="me-2" />
-                                    <span className="">Rating: {data.review_score}/10</span>
+                                        <span>{data.address}, {data.city}</span>
+                                    </div>
+                                    <div>
+                                        <FontAwesomeIcon icon={faStar} className="me-2" />
+                                        <span className="">Rating: {data.review_score}/10</span>
+                                    </div>
+                                </div>
+                                <div className="mt-2 mb-2 mx-auto">
+                                    <img src={data.main_photo_url} alt="pic" className="rounded-radius" width="400" height="400" />
                                 </div>
                             </div>
-                            <div className="row mb-4">
-                                <div className="col-md-4 mb-3 mx-auto">
-                                    <img src={data.main_photo_url} alt="pic" className="img-fluid rounded-radius" width="200" height="200" />
-                                </div>
-
-                            </div>
-                            <div className="d-flex justify-content-center">
+                            <div className="mt-4 mb-auto d-flex justify-content-center">
                                 <button className="btn btn-primary" onClick={handleClick}>Reserve Now</button>
                             </div>
-                        </div>
-                    </div>
                 <SubscribeComponent />
                 <FooterComponent />
                 </div>

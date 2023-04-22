@@ -22,7 +22,7 @@ const List = () => {
                 <p className="fw-bold mt-2" style={{fontSize: "30px"}}>Hotel Booking</p>
                 </Link>
                 {user ? (
-                    <div className="navItems">
+                    <div className="navItems fw-bold" style={{fontSize: '16px'}}>
                         {user.isVIP ? (
                             `Welcome VIP user, ${user.username}!`
                         ) : (
