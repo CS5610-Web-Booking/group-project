@@ -12,7 +12,9 @@ const List = () => {
     const handleClickRegister = () => {
         navigate("/register");
     }
-    const { user } = useContext(AuthContext);
+    const { user, logout } = useContext(AuthContext);
+    const handleLogout = () => { logout();};
+
     return (
         <div className="navBar">
             <div className="navCon">
@@ -26,6 +28,7 @@ const List = () => {
                         ) : (
                             `Welcome, ${user.username}!`
                         )}
+                        <button onClick={handleLogout}>Logout</button>
                     </div>
                 )  : (<div className="navItems">
                     <button onClick ={handleClickRegister} className="navButton">Register</button>

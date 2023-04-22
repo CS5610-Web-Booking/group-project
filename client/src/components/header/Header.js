@@ -67,7 +67,7 @@ const Header = ({type}) => {
                 <>
                 <h1 className="headerTitle mt-2">Best Choice For Your Hotel Booking Experience</h1>
                 <p className="headerDescription">Join Our VIP Club For 10% Off!</p>
-                {/*{ !user &&(<button onClick={onClickLoginRegister}>Sign in / Register</button>)}*/}
+                { !user &&(<button onClick={onClickLoginRegister}>Sign in / Register</button>)}
                 <div className="headerSearch">
                     <div className="headerSearchItem">
                         <FontAwesomeIcon icon={faBed} className="headerIcon"/>
