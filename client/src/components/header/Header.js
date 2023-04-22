@@ -2,7 +2,6 @@ import "./header.css";
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBed } from '@fortawesome/free-solid-svg-icons';
-import { faPlane } from '@fortawesome/free-solid-svg-icons';
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 import { faPerson } from '@fortawesome/free-solid-svg-icons';
 import {useContext, useState} from 'react';
@@ -42,7 +41,6 @@ const Header = ({type}) => {
     };
 
     const { dispatch } = useContext(SearchContext);
-    console.log(useContext(SearchContext));
     const handleSearch = () => {
         dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
         navigate("/hotels", { state: { destination, dates, options } });
@@ -53,6 +51,9 @@ const Header = ({type}) => {
     };
 
 
+    const handleDestinationChange = (event) => {
+        setDestination(event.target.value);
+    };
     return (
         <div className="header">
           <div className={type==="list" ?"headerCon listMode" : "headerCon"}>
@@ -65,12 +66,12 @@ const Header = ({type}) => {
             {type !== "list" &&
                 <>
                 <h1 className="headerTitle">Best Choice For Your Hotel Booking Experience</h1>
-                <p className="headerDescription">Join Us Today For 15% Off!</p>
-                { !user &&(<button onClick={onClickLoginRegister}>Sign in / Register</button>)}
+                <p className="headerDescription">Join Our VIP Club For 10% Off!</p>
+                {/*{ !user &&(<button onClick={onClickLoginRegister}>Sign in / Register</button>)}*/}
                 <div className="headerSearch">
                     <div className="headerSearchItem">
                         <FontAwesomeIcon icon={faBed} className="headerIcon"/>
-                        <input type="text" placeholder="Destination" className="headerSearchInput"/>
+                        <input type="text" placeholder="Destination(City)" className="headerSearchInput" onChange={handleDestinationChange}/>
                     </div>
                     <div className="headerSearchItem">
                        <FontAwesomeIcon icon={faCalendarDays} className="headerIcon"/>

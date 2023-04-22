@@ -1,13 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
-// import { useContext, useState } from "react";
-// import axios from "axios";
-
 import "./reserve.css";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
-// import {SearchContext} from "../../context/SearchContext";
-// import useFetch from "../../hooks/useFetch";
+
 
 const ReserveComponent= ({ setOpen }) => {
     const navigate = useNavigate();
@@ -49,12 +45,12 @@ const ReserveComponent= ({ setOpen }) => {
 
                 <div className="d-flex align-items-center p-4" style={{ gap: '50px' }}>
                     <div className="d-flex flex-column gap-2">
-                        <div className="fw-bolder">King Room</div>
-                        <div className="fw-bold">One king-sized bed</div>
+                        <p className="fw-bolder">King Room</p>
+                        <p className="">One king-sized bed</p>
                     </div>
-                    <div className="d-flex flex-wrap small" style={{gap: '5px'}}>
+                    <div className="d-flex flex-wrap small text-secondary me-8" style={{gap: '5px'}}>
                         <button onClick={decrementKingRooms}>-</button>
-                        <span>{kingRooms}</span>
+                        <span className="mt-1">{kingRooms}</span>
                         <button onClick={incrementKingRooms}>+</button>
                     </div>
 
@@ -62,12 +58,12 @@ const ReserveComponent= ({ setOpen }) => {
 
                 <div className="d-flex align-items-center p-4" style={{ gap: '50px' }}>
                     <div className="d-flex flex-column gap-2">
-                        <div className="fw-bolder">Queen Room</div>
-                        <div className="fw-bold">Two queen-sized bed</div>
+                        <p className="fw-bolder">Queen Room</p>
+                        <p className="">Two queen-sized bed</p>
                     </div>
-                    <div className="d-flex flex-wrap small text-secondary" style={{ gap: '5px' }}>
+                    <div className="d-flex flex-wrap small text-secondary me-8" style={{ gap: '5px' }}>
                         <button onClick={decrementQueenRooms}>-</button>
-                        <span>{queenRooms}</span>
+                        <span className="mt-1">{queenRooms}</span>
                         <button onClick={incrementQueenRooms}>+</button>
                     </div>
                 </div>

@@ -14,12 +14,20 @@ const List = () => {
     }
     const { user } = useContext(AuthContext);
     return (
-        <div className="navbar">
+        <div className="navBar">
             <div className="navCon">
                 <Link to="/" style={{color:"inherit", textDecoration:"none"}}>
-                <p className="font-weight-700;">Hotel Booking</p>
+                <p className="fw-bold mt-2" style={{fontSize: "30px"}}>Hotel Booking</p>
                 </Link>
-                {user ? user.username : (<div className="navItems">
+                {user ? (
+                    <div className="navItems">
+                        {user.isVIP ? (
+                            `Welcome VIP user, ${user.username}!`
+                        ) : (
+                            `Welcome, ${user.username}!`
+                        )}
+                    </div>
+                )  : (<div className="navItems">
                     <button onClick ={handleClickRegister} className="navButton">Register</button>
                     <button onClick={handleClick} className="navButton">Sign in</button>
                 </div>
