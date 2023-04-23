@@ -7,10 +7,10 @@ export const userColumns = [
     width: 230,
     renderCell: (params) => {
       return (
-        <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img || "https://i.ibb.co/MBtjqXQ/no-avatar.gif"} alt="avatar" />
-          {params.row.username}
-        </div>
+          <div className="cellWithImg">
+            <img className="cellImg" src={params.row.img || "https://i.ibb.co/MBtjqXQ/no-avatar.gif"} alt="avatar" />
+            {params.row.username}
+          </div>
       );
     },
   },
@@ -84,3 +84,4 @@ export const roomColumns = [
     width: 100,
   },
 ];
+
