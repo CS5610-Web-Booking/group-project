@@ -128,7 +128,6 @@ return (
                         <p>endDate: {reservation.endDate}</p>
                         <p>kingRoom: {reservation.kingRooms}</p>
                         <p>queenRoom: {reservation.queenRooms}</p>
-                        <hr/>
                     </div>
                     ))}
                   </div>):(<p>No reservations</p>)}
