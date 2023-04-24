@@ -18,6 +18,6 @@ router.put("/:id", verifyUser, updateReservation);
 router.delete("/:id", verifyUser, deleteReservation);
 
 // GET
-router.get("/user/:id", verifyUser, getReservationsByUserId);
+router.get("/user/:userId", getReservationsByUserId);
 
 export default router;

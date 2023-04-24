@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   user: JSON.parse(localStorage.getItem("user")) || null,
   loading: false,
   error: null,
+  setUser: () => {},
 };
 
 export const AuthContext = createContext(INITIAL_STATE);
@@ -57,6 +58,7 @@ export const AuthContextProvider = ({ children }) => {
         user: state.user,
         loading: state.loading,
         error: state.error,
+        setUser: () => {},
         dispatch,
         logout,
       }}
