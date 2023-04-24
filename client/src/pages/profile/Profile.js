@@ -34,20 +34,28 @@ function Profile() {
      }
    }, [user]);
 
+   const handleClickHome = () => {
+    window.location.replace("/");
+    };
+
   const handleUpdate = async (event) => {
     event.preventDefault();
         try {
-        const updatedUser = await axios.put(`/users/${user._id}`, {
-            username,
-            email,
-            country,
-            city,
-            phone,
-          });
-          localStorage.setItem('user', JSON.stringify(updatedUser.data));
-          console.log(updatedUser);
-          setUser(updatedUser.data);
-          alert("User data updated successfully");
+        if(user === null) {
+          alert("Please login to update your profile");
+        } else
+        {const updatedUser = await axios.put(`/users/${user._id}`, {
+                username,
+                email,
+                country,
+                city,
+                phone,
+              });
+              localStorage.setItem('user', JSON.stringify(updatedUser.data));
+              console.log(updatedUser);
+              setUser(updatedUser.data);
+              alert("User data updated successfully");
+              }
         } catch (err) {
           alert("The username or email already exists");
        }
@@ -61,9 +69,7 @@ function Profile() {
       setPhone(user ? user.phone : "");
     }, [user]);
 
-  const handleClickHome = () => {
-    window.location.href = "/";
-  };
+
 
 return (
     <div>
