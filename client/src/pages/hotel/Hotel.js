@@ -11,7 +11,10 @@ import ReserveComponent from "../../components/reserve/reserve";
 
 const Hotel = () => {
     const location = useLocation();
-    const id = location.pathname.slice(-7);
+    const path = location.pathname;
+    const matches = path.match(/\d+$/);
+    const id = parseInt(matches.pop());
+
     const [openModal, setOpenModal] = useState(false);
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -79,7 +82,7 @@ const Hotel = () => {
                 <FooterComponent />
                 </div>
             )}
-            {openModal && <ReserveComponent setOpen={setOpenModal} hotelId={id }/>}
+            {openModal && <ReserveComponent setOpen={setOpenModal} hotelId={id} hotelName={data.name}/>}
         </div>
     );
 };
