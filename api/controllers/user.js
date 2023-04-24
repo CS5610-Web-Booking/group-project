@@ -36,3 +36,16 @@ export const getUsers = async (req,res,next)=>{
         next(err);
     }
 }
+
+export const updateUserInfo = async (req,res,next)=>{
+    try {
+        const updatedUser = await User.findByIdAndUpdate(
+            req.params.id,
+            { $set: req.body },
+            { new: true }
+        );
+        res.status(200).json(updatedUser);
+    } catch (err) {
+        next(err);
+    }
+}
