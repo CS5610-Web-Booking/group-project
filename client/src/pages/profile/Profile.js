@@ -42,7 +42,7 @@ function Profile() {
     event.preventDefault();
         try {
         if(user === null) {
-          alert("Please login to update your profile");
+          //nothing occurs
         } else
         {const updatedUser = await axios.put(`/users/${user._id}`, {
                 username,
