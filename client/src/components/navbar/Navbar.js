@@ -12,8 +12,13 @@ const List = () => {
     const handleClickRegister = () => {
         navigate("/register");
     }
+   const handleProfile = () => {
+   navigate("/profile");
+   }
+
     const { user, logout } = useContext(AuthContext);
     const handleLogout = () => { logout();};
+
 
     return (
         <div className="navBar">
@@ -28,9 +33,11 @@ const List = () => {
                         ) : (
                             `Welcome, ${user.username}!`
                         )}
-                        <button onClick={handleLogout}>Logout</button>
+                        <button onClick={handleProfile} className="navButton">User Profile</button>
+                        <button onClick={handleLogout} className="navButton">Logout</button>
                     </div>
                 )  : (<div className="navItems">
+                    <button onClick={handleProfile} className="navButton">User Profile</button>
                     <button onClick ={handleClickRegister} className="navButton">Register</button>
                     <button onClick={handleClick} className="navButton">Sign in</button>
                 </div>

@@ -1,0 +1,39 @@
+.profileCon {
+   height: 80vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.pContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 20%;
+}
+
+.Input{
+  height: 40px;
+  margin: 10px;
+  padding: 15px;
+  width: 700px;
+}
+
+.Button {
+  border: none;
+  padding: 10px 20px;
+  background-color: #0071c2;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.reservationCon{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 700px;
+  margin: 10px;
+}

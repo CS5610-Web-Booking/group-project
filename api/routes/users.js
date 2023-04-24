@@ -4,7 +4,6 @@ import {
     deleteUser,
     getUser,
     getUsers,
-    updateUserInfo
 } from "../controllers/user.js";
 import { verifyAdmin, verifyToken, verifyUser } from "../utils/verifyToken.js";
 
@@ -12,7 +11,6 @@ const router = express.Router();
 
 //UPDATE
 router.put("/:id", verifyUser, updateUser);
-router.post("/profile/:id", updateUserInfo);
 
 //DELETE
 router.delete("/:id", verifyUser, deleteUser);

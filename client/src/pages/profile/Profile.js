@@ -1,22 +1,50 @@
-import {useContext} from "react";
+import {useContext, useEffect} from "react";
 import {AuthContext} from "../../context/AuthContext";
 import Navbar from "../../components/navbar/Navbar";
 import {useState} from "react";
 import axios from 'axios';
+import {Link} from "react-router-dom";
+import "./profile.css";
 
 function Profile() {
   const {user, setUser} = useContext(AuthContext);
-  const [username, setUsername] = useState(user.username);
-  const [email, setEmail] = useState(user.email);
+  const [username, setUsername] = useState(user? user.username:"");
+  const [email, setEmail] = useState(user? user.email:"");
+  const [country, setCountry] = useState(user?.country || "");
+  const [city, setCity] = useState(user? user.city:"");
+  const [phone, setPhone] = useState(user? user.phone:"");
+  const [reservations, setReservations] = useState(null);
+
+   useEffect(() => {
+     if (user) {
+       async function fetchReservations() {
+         try {
+           const response = await axios.get(`/reservation/user/${user._id}`);
+           if(response === null) {
+             setReservations([]);
+           } else {
+            setReservations(response.data.reservations);
+           }
+           console.log(response.data);
+         } catch (error) {
+           console.error(error);
+         }
+       }
+       fetchReservations();
+     }
+   }, [user]);
 
   const handleUpdate = async (event) => {
     event.preventDefault();
         try {
-        console.log(user._id);
-        const updatedUser = await axios.post(`/users/profile/${user._id}`, {
+        const updatedUser = await axios.put(`/users/${user._id}`, {
             username,
             email,
+            country,
+            city,
+            phone,
           });
+          localStorage.setItem('user', JSON.stringify(updatedUser.data));
           console.log(updatedUser);
           setUser(updatedUser.data);
           alert("User data updated successfully");
@@ -25,33 +53,91 @@ function Profile() {
        }
   };
 
+    useEffect(() => {
+      setUsername(user ? user.username : "");
+      setEmail(user ? user.email : "");
+      setCountry(user ? user.country : "");
+      setCity(user ? user.city : "");
+      setPhone(user ? user.phone : "");
+    }, [user]);
+
+  const handleClickHome = () => {
+    window.location.href = "/";
+  };
+
 return (
     <div>
       <Navbar />
-      <h2>Profile</h2>
-      {user ? (
-        <form onSubmit={handleUpdate}>
-          <label>
-            Username:
-            <input
-              type="text"
-              value={username}
-              onChange={(event) => setUsername(event.target.value)}
-            />
-          </label>
-          <label>
-            Email:
-            <input
-              type="text"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-            />
-          </label>
-          <button type="submit">Update</button>
-        </form>
-      ) : (
-        <p>Loading...</p>
-      )}
+      <div className="profileCon">
+        <div className="pContainer">
+           <h1>Profile</h1>
+           <h4>User Information</h4>
+          <form onSubmit={handleUpdate}>
+              <label>
+                Username:
+                <input
+                  type="text"
+                  onChange={(event) => setUsername(event.target.value)}
+                  value={username}
+                  className="Input"
+                />
+              </label>
+              <label>
+                Email:
+                <input
+                  type="text"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                  className="Input"
+                />
+              </label>
+               <label>
+                  Country:
+                  <input
+                    type="text"
+                    onChange={(event) => setCountry(event.target.value)}
+                    value={country}
+                    className="Input"
+                  />
+                </label>
+                <label>
+                  City:
+                  <input
+                    type="text"
+                    onChange={(event) => setCity(event.target.value)}
+                    value={city}
+                    className="Input"
+                  />
+                </label>
+                <label>
+                  Phone:
+                  <input
+                    type="text"
+                    value={phone}
+                    onChange={(event) => setPhone(event.target.value)}
+                    className="Input"
+                  />
+                </label>
+                <div className ="reservationCon">
+                <h4>Reservations</h4>
+                  {user && reservations && reservations.length > 0 ? (<div>
+                  {reservations.map((reservation) => (
+                    <div style={{ border: '1px solid black', padding: '10px', marginBottom: '10px' }} key={reservation._id}>
+                        <p>HotelName: {reservation.hotelName}</p>
+                        <p>startDate: {reservation.startDate}</p>
+                        <p>endDate: {reservation.endDate}</p>
+                        <p>kingRoom: {reservation.kingRooms}</p>
+                        <p>queenRoom: {reservation.queenRooms}</p>
+                        <hr/>
+                    </div>
+                    ))}
+                  </div>):(<p>No reservations</p>)}
+                  </div>
+                {user? (<button type="submit" className="Button">Update</button>):(<p><Link to="/login"> Login</Link> to see your profile</p>)}
+                <button onClick={handleClickHome} className="Button"> Go To Home</button>
+            </form>
+         </div>
+      </div>
     </div>
   );
 }
