@@ -134,7 +134,7 @@ return (
                   </div>):(<p>No reservations</p>)}
                   </div>
                 {user? (<button type="submit" className="Button">Update</button>):(<p><Link to="/login"> Login</Link> to see your profile</p>)}
-                <button onClick={handleClickHome} className="Button"> Go To Home</button>
+                <button onClick={handleClickHome} className="Button"> Return To Home Page</button>
             </form>
          </div>
       </div>

@@ -32,6 +32,10 @@ const Register = () => {
     }
   };
 
+  const handleClickHome = () => {
+    window.location.href = "/";
+  };
+
   return (
     <div className="Container">
       <div className="lContainer">
@@ -84,9 +88,14 @@ const Register = () => {
           onChange={handleChange}
           className="Register_Input"
         />
-        <button onClick={handleClick} className="Button">
-          Register
-        </button>
+        <div className="buttonCon">
+            <button onClick={handleClick} className="Button">
+              Register
+            </button>
+           <button onClick={handleClickHome} className="Button">
+                     Return To Home
+           </button>
+        </div>
         {registerSuccess === true && (
             <p style={{ color: "green" }}>Registration successful. Please <Link to="/login"> login.</Link></p>)}
         {registerSuccess === false && (<p style={{ color: "red" }}>Registration failed. Please make sure all required information are provided.</p>)}

@@ -28,6 +28,13 @@
   border-radius: 5px;
 }
 
+.buttonCon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .lButton:disabled{
   background-color: #0071c28c;
   cursor: not-allowed;
