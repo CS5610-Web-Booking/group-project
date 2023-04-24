@@ -20,11 +20,20 @@ const ReserveComponent= ({ setOpen, hotelId, hotelName }) => {
 
     const handleStartDateChange = (date) => {
         setStartDate(date);
+        // Check if the end date is earlier than the start date
+        if (endDate < date) {
+            setEndDate(date);
+        }
     };
 
     const handleEndDateChange = (date) => {
         setEndDate(date);
+        // Check if the end date is earlier than the start date
+        if (date < startDate) {
+            setStartDate(date);
+        }
     };
+
 
     const decrementKingRooms = () => {
         setKingRooms((prevKingRooms) => prevKingRooms - 1);
