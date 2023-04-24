@@ -7,7 +7,7 @@ import {faStar, faLocationDot,} from "@fortawesome/free-solid-svg-icons";
 import {useContext, useEffect, useState} from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import ReserveComponent from "../../components/reserve/reserve";
+import ReserveComponent from "../../components/reserve/Reserve";
 
 const Hotel = () => {
     const location = useLocation();
