@@ -18,6 +18,8 @@ const Hotel = () => {
     const [openModal, setOpenModal] = useState(false);
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const options = {
         method: 'GET',
@@ -37,16 +39,12 @@ const Hotel = () => {
         fetchData();
     },[id]);
 
-    const { user } = useContext(AuthContext);
-    const navigate = useNavigate();
-
     const handleClick = () => {
         if (user) {
             setOpenModal(true);
         } else {
             navigate("/login");
         }
-        // setOpenModal(true);
     };
 
     return (
