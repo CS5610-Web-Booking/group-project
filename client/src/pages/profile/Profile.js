@@ -79,51 +79,63 @@ return (
            <h1>Profile</h1>
            <h4>User Information</h4>
           <form onSubmit={handleUpdate}>
+            <div className="form-group">
               <label>
                 Username:
+              </label>
                 <input
                   type="text"
                   onChange={(event) => setUsername(event.target.value)}
                   value={username}
                   className="Input"
                 />
-              </label>
+              </div>
+
+              <div className="form-group">
               <label>
                 Email:
+                </label>
                 <input
                   type="text"
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                   className="Input"
                 />
-              </label>
+              </div>
+
+              <div className="form-group">
                <label>
                   Country:
+                </label>
                   <input
                     type="text"
                     onChange={(event) => setCountry(event.target.value)}
                     value={country}
                     className="Input"
                   />
-                </label>
+                </div>
+                <div className="form-group">
                 <label>
                   City:
+                </label>
                   <input
                     type="text"
                     onChange={(event) => setCity(event.target.value)}
                     value={city}
                     className="Input"
                   />
-                </label>
+                </div>
+                <div className="form-group">
                 <label>
                   Phone:
+                </label>
                   <input
                     type="text"
                     value={phone}
                     onChange={(event) => setPhone(event.target.value)}
                     className="Input"
                   />
-                </label>
+                </div>
                 <div className ="reservationCon">
                 <h4>Reservations</h4>
                   {user && reservations && reservations.length > 0 ? (<div>
