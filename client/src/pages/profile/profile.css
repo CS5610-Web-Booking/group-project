@@ -9,14 +9,14 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 50%;
+  width: 20%;
 }
 
 .Input{
   height: 40px;
   margin: 10px;
   padding: 15px;
-  width: 700px;
+  width: 300px;
 }
 
 .Button {
@@ -35,5 +35,9 @@
   flex-direction: column;
   gap: 10px;
   width: 700px;
+  margin: 10px;
+}
+
+.linkMargin{
   margin: 10px;
 }

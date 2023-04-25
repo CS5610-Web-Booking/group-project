@@ -137,9 +137,10 @@ return (
                     </div>
                     ))}
                   </div>):(<p>No reservations</p>)}
-                  </div>
-                {user? (<button type="submit" className="Button">Update</button>):(<p><Link to="/login"> Login</Link> to see your profile</p>)}
-                <button onClick={handleClickHome} className="Button"> Return To Home Page</button>
+
+               </div>
+               {user? (<button type="submit" className="Button">Update</button>):(<p className="linkMargin"><Link to="/login"> Login</Link> to see your profile</p>)}
+               <button onClick={handleClickHome} className="Button"> Return To Home</button>
             </form>
          </div>
       </div>
