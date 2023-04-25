@@ -37,7 +37,7 @@ const Login = () => {
 
   return (
     <div className="Container">
-      <div className="lContainer">
+      <div className="loginContainer">
         <h1>Login</h1>
         <input
           type="text"
@@ -60,7 +60,7 @@ const Login = () => {
             <button onClick={handleClickHome} className="Button">Return To Home</button>
         </div>
         {error && <span>{error.message}</span>}
-        <p>New User? Create Account <Link to="/register"> Here.</Link></p>
+        <p className="textMargin">New User? Create Account <Link to="/register"> Here.</Link></p>
       </div>
     </div>
   );

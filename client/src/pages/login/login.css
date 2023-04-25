@@ -1,15 +1,14 @@
 .Container {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.lContainer {
+.loginContainer {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 8%;
 }
 
 .Input{
@@ -17,15 +16,15 @@
   padding: 10px;
 }
 
-
 .Button {
   border: none;
-  padding: 10px 10px;
+  padding: 10px 20px;
   background-color: #0071c2;
   color: white;
   font-weight: bold;
   cursor: pointer;
   border-radius: 5px;
+  margin: 10px;
 }
 
 .lButton:disabled{
@@ -38,4 +37,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.textMargin {
+    margin: 10px;
 }

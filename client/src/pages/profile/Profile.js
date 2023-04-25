@@ -79,67 +79,80 @@ return (
            <h1>Profile</h1>
            <h4>User Information</h4>
           <form onSubmit={handleUpdate}>
+            <div className="form-group">
               <label>
                 Username:
+              </label>
                 <input
                   type="text"
                   onChange={(event) => setUsername(event.target.value)}
                   value={username}
                   className="Input"
                 />
-              </label>
+              </div>
+
+              <div className="form-group">
               <label>
                 Email:
+                </label>
                 <input
                   type="text"
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                   className="Input"
                 />
-              </label>
+              </div>
+
+              <div className="form-group">
                <label>
                   Country:
+                </label>
                   <input
                     type="text"
                     onChange={(event) => setCountry(event.target.value)}
                     value={country}
                     className="Input"
                   />
-                </label>
+                </div>
+                <div className="form-group">
                 <label>
                   City:
+                </label>
                   <input
                     type="text"
                     onChange={(event) => setCity(event.target.value)}
                     value={city}
                     className="Input"
                   />
-                </label>
+                </div>
+                <div className="form-group">
                 <label>
                   Phone:
+                </label>
                   <input
                     type="text"
                     value={phone}
                     onChange={(event) => setPhone(event.target.value)}
                     className="Input"
                   />
-                </label>
+                </div>
                 <div className ="reservationCon">
                 <h4>Reservations</h4>
                   {user && reservations && reservations.length > 0 ? (<div>
                   {reservations.map((reservation) => (
                     <div style={{ border: '1px solid black', padding: '10px', marginBottom: '10px' }} key={reservation._id}>
-                        <p>HotelName: {reservation.hotelName}</p>
-                        <p>startDate: {reservation.startDate}</p>
-                        <p>endDate: {reservation.endDate}</p>
-                        <p>kingRoom: {reservation.kingRooms}</p>
-                        <p>queenRoom: {reservation.queenRooms}</p>
+                        <p>Hotel Name: {reservation.hotelName}</p>
+                        <p>Start Date: {reservation.startDate.slice(0, 10)}</p>
+                        <p>End Date: {reservation.endDate.slice(0, 10)}</p>
+                        <p>King Room: {reservation.kingRooms}</p>
+                        <p>Queen Room: {reservation.queenRooms}</p>
                     </div>
                     ))}
                   </div>):(<p>No reservations</p>)}
-                  </div>
-                {user? (<button type="submit" className="Button">Update</button>):(<p><Link to="/login"> Login</Link> to see your profile</p>)}
-                <button onClick={handleClickHome} className="Button"> Return To Home Page</button>
+
+               </div>
+               {user? (<button type="submit" className="Button">Update</button>):(<p><Link to="/login"> Login</Link> to see your profile</p>)}
+               <button onClick={handleClickHome} className="Button"> Return To Home</button>
             </form>
          </div>
       </div>
