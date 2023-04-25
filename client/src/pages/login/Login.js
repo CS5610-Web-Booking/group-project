@@ -37,7 +37,7 @@ const Login = () => {
 
   return (
     <div className="Container">
-      <div className="lContainer">
+      <div className="loginContainer">
         <h1>Login</h1>
         <input
           type="text"

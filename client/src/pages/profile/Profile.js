@@ -129,11 +129,11 @@ return (
                   {user && reservations && reservations.length > 0 ? (<div>
                   {reservations.map((reservation) => (
                     <div style={{ border: '1px solid black', padding: '10px', marginBottom: '10px' }} key={reservation._id}>
-                        <p>HotelName: {reservation.hotelName}</p>
-                        <p>startDate: {reservation.startDate}</p>
-                        <p>endDate: {reservation.endDate}</p>
-                        <p>kingRoom: {reservation.kingRooms}</p>
-                        <p>queenRoom: {reservation.queenRooms}</p>
+                        <p>Hotel Name: {reservation.hotelName}</p>
+                        <p>Start Date: {reservation.startDate}</p>
+                        <p>End Date: {reservation.endDate}</p>
+                        <p>King Room: {reservation.kingRooms}</p>
+                        <p>Queen Room: {reservation.queenRooms}</p>
                     </div>
                     ))}
                   </div>):(<p>No reservations</p>)}
