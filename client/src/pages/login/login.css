@@ -1,15 +1,14 @@
 .Container {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.lContainer {
+.loginContainer {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 8%;
 }
 
 .Input{
@@ -20,7 +19,7 @@
 
 .Button {
   border: none;
-  padding: 10px 10px;
+  padding: 10px 20px;
   background-color: #0071c2;
   color: white;
   font-weight: bold;
