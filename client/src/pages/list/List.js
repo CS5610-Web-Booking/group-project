@@ -26,8 +26,8 @@ const List = () => {
         const header = {
             method: 'GET',
             headers: {
-                        'X-RapidAPI-Key': '92749f1e5bmshe907383f6ca8192p127a3djsn38dd8aae4860',
-                        'X-RapidAPI-Host': 'booking-com.p.rapidapi.com'
+                'X-RapidAPI-Key': '92749f1e5bmshe907383f6ca8192p127a3djsn38dd8aae4860',
+                'X-RapidAPI-Host': 'booking-com.p.rapidapi.com'
             }
         };
         // ${format(dates[0].startDate, "yyyy-MM-dd").toString()}
