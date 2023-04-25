@@ -20,6 +20,8 @@ const Hotel = () => {
     const [loading, setLoading] = useState(false);
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
+    const [name, setName] = useState("");
+
 
     const options = {
         method: 'GET',
@@ -29,15 +31,23 @@ const Hotel = () => {
         }
     };
 
-    useEffect(()=>{
+    useEffect(() => {
+        setLoading(true);
         const fetchData = async () => {
             const response = await fetch(`https://booking-com.p.rapidapi.com/v1/hotels/data?hotel_id=${id}&locale=en-us`, options);
             const result = await response.json();
             setData(result);
+            setLoading(false);
         };
-
         fetchData();
-    },[id]);
+    }, [id]);
+
+
+    useEffect(() => {
+        if (data.name) {
+            setName(data.name);
+        }
+    }, [data]);
 
     const handleClick = () => {
         if (user) {
@@ -47,41 +57,44 @@ const Hotel = () => {
         }
     };
 
+    const handleGoBack = () => {
+        navigate(-1); // navigate back to previous page
+    };
+
     return (
-        <div className="container">
-            <Navbar />
-            <Header type="list" />
-            {loading ? (
-                <div className="spinner-border text-primary" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                </div>
-            ) : (
-                <div className="container py-5 text-center">
-                        <h1 className="mb-2">{data.name}</h1>
-                            <div className="mb-2 mt-2">
+            <div className="container">
+                <Navbar />
+                <Header type="list" />
+                {loading ? (
+                    "Loading result..."
+                ) : (
+                    <div className="container py-5 text-center">
+                        <h1 className="mb-2">{name}</h1>
+                        <div className="mb-2 mt-2">
+                            <div>
                                 <div>
-                                    <div>
-                                        <FontAwesomeIcon icon={faLocationDot} className="me-2" />
-                                        <span>{data.address}, {data.city}</span>
-                                    </div>
-                                    <div>
-                                        <FontAwesomeIcon icon={faStar} className="me-2" />
-                                        <span className="">Rating: {data.review_score}/10</span>
-                                    </div>
+                                    <FontAwesomeIcon icon={faLocationDot} className="me-2" />
+                                    <span>{data.address}, {data.city}</span>
                                 </div>
-                                <div className="mt-2 mb-2 mx-auto">
-                                    <img src={data.main_photo_url} alt="pic" className="rounded-radius" width="400" height="400" />
+                                <div>
+                                    <FontAwesomeIcon icon={faStar} className="me-2" />
+                                    <span className="">Rating: {data.review_score}/10</span>
                                 </div>
                             </div>
-                            <div className="mt-4 mb-auto d-flex justify-content-center">
-                                <button className="btn btn-primary" onClick={handleClick}>Reserve Now</button>
+                            <div className="mt-2 mb-2 mx-auto">
+                                <img src={data.main_photo_url} alt="pic" className="rounded-radius" width="400" height="400" />
                             </div>
-                <SubscribeComponent />
-                <FooterComponent />
-                </div>
-            )}
-            {openModal && <ReserveComponent setOpen={setOpenModal} hotelId={id} hotelName={data.name}/>}
-        </div>
+                        </div>
+                        <div className="mt-4 mb-auto d-flex justify-content-center">
+                            <button className="btn btn-primary mb-auto" onClick={handleClick}>Reserve Now</button>
+                        </div>
+                        <button className="btn btn-secondary mt-2 mb-auto" onClick={handleGoBack}>Go Back </button>
+                        <SubscribeComponent />
+                        <FooterComponent />
+                    </div>
+                )}
+                {openModal && <ReserveComponent setOpen={setOpenModal} hotelId={id} hotelName={name}/>}
+            </div>
     );
 };
 

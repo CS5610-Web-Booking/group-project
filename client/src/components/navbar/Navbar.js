@@ -27,11 +27,17 @@ const List = () => {
                 <p className="fw-bold mt-2" style={{fontSize: "30px"}}>Hotel Booking</p>
                 </Link>
                 {user ? (
-                    <div className="navItems fw-bold" style={{fontSize: '16px'}}>
+                    <div className="navItems fw-bold">
                         {user.isVIP ? (
-                            `Welcome VIP user, ${user.username}!`
+                            <div className="text-center pt-1" style={{fontSize: '20px'}}>
+                                Welcome VIP user, {user.username}!
+                            </div>
+
                         ) : (
-                            `Welcome, ${user.username}!`
+                            <div className="text-center pt-1" style={{fontSize: '20px'}}>
+                                Welcome, {user.username}!
+                            </div>
+
                         )}
                         <button onClick={handleProfile} className="navButton">User Profile</button>
                         <button onClick={handleLogout} className="navButton">Logout</button>
