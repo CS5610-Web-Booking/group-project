@@ -26,7 +26,7 @@ const List = () => {
         const header = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '31c3fbb608msh1e4208d654e53e0p155b5ajsn963715aecd48',
+                'X-RapidAPI-Key': '92749f1e5bmshe907383f6ca8192p127a3djsn38dd8aae4860',
                 'X-RapidAPI-Host': 'booking-com.p.rapidapi.com'
             }
         };

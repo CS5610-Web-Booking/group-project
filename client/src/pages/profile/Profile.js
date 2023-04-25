@@ -130,8 +130,8 @@ return (
                   {reservations.map((reservation) => (
                     <div style={{ border: '1px solid black', padding: '10px', marginBottom: '10px' }} key={reservation._id}>
                         <p>Hotel Name: {reservation.hotelName}</p>
-                        <p>Start Date: {reservation.startDate}</p>
-                        <p>End Date: {reservation.endDate}</p>
+                        <p>Start Date: {reservation.startDate.slice(0, 10)}</p>
+                        <p>End Date: {reservation.endDate.slice(0, 10)}</p>
                         <p>King Room: {reservation.kingRooms}</p>
                         <p>Queen Room: {reservation.queenRooms}</p>
                     </div>
