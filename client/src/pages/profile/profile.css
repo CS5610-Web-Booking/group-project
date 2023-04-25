@@ -31,15 +31,10 @@
   font-weight: bold;
   cursor: pointer;
   border-radius: 5px;
-  margin: 10px;
 }
 
 .reservationCon{
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-
-.linkMargin{
-  margin: 10px;
 }

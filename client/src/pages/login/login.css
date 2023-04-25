@@ -16,7 +16,6 @@
   padding: 10px;
 }
 
-
 .Button {
   border: none;
   padding: 10px 20px;
@@ -25,6 +24,7 @@
   font-weight: bold;
   cursor: pointer;
   border-radius: 5px;
+  margin: 10px;
 }
 
 .lButton:disabled{
@@ -37,4 +37,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.textMargin {
+    margin: 10px;
 }
