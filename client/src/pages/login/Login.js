@@ -31,6 +31,9 @@ const Login = () => {
     }
   };
 
+  const handleClickHome = () => {
+      window.location.href = "/";
+    };
 
   return (
     <div className="Container">
@@ -50,9 +53,12 @@ const Login = () => {
           onChange={handleChange}
           className="Input"
         />
-        <button disabled={loading} onClick={handleClick} className="Button">
-          Login
-        </button>
+        <div className="buttonCon">
+            <button disabled={loading} onClick={handleClick} className="Button">
+              Login
+            </button>
+            <button onClick={handleClickHome} className="Button">Return To Home</button>
+        </div>
         {error && <span>{error.message}</span>}
         <p>New User? Create Account <Link to="/register"> Here.</Link></p>
       </div>
