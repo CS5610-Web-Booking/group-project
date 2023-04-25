@@ -22,8 +22,8 @@ const Hotel = () => {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'dc90d1b602msh8fc39ffcb89693ap1af829jsna146b6e22a0e',
-            'X-RapidAPI-Host': 'booking-com.p.rapidapi.com'
+             'X-RapidAPI-Key': '92749f1e5bmshe907383f6ca8192p127a3djsn38dd8aae4860',
+             'X-RapidAPI-Host': 'booking-com.p.rapidapi.com'
         }
     };
 
