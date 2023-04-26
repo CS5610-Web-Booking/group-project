@@ -32,15 +32,6 @@ const Sidebar = () => {
               <span>Users</span>
             </li>
           </Link>
-          <p className="title">USER</p>
-          <li>
-            <AccountCircleOutlinedIcon className="icon" />
-            <span>Profile</span>
-          </li>
-          <li>
-            <ExitToAppIcon className="icon" />
-            <span>Logout</span>
-          </li>
         </ul>
       </div>
       <div className="bottom">
