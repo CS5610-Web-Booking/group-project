@@ -1,79 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import "./reserve.css";
-import {useContext, useState} from "react";
-import {useNavigate} from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import axios from "axios";
-import {AuthContext} from "../../context/AuthContext";
 
-
-const ReserveComponent= ({ setOpen, hotelId, hotelName }) => {
-    const navigate = useNavigate();
-    const { user } = useContext(AuthContext);
-    const [kingRooms, setKingRooms] = useState(0);
-    const [queenRooms, setQueenRooms] = useState(0);
-    const [startDate, setStartDate] = useState(null);
-    const [endDate, setEndDate] = useState(null);
-
-
-    const handleStartDateChange = (date) => {
-        setStartDate(date);
-        // Check if the end date is earlier than the start date
-        if (endDate < date) {
-            setEndDate(date);
-        }
-    };
-
-    const handleEndDateChange = (date) => {
-        setEndDate(date);
-        // Check if the end date is earlier than the start date
-        if (date < startDate) {
-            setStartDate(date);
-        }
-    };
-
-
-    const decrementKingRooms = () => {
-        setKingRooms((prevKingRooms) => prevKingRooms - 1);
-    };
-
-    const incrementKingRooms = () => {
-        setKingRooms((prevKingRooms) => prevKingRooms + 1);
-    };
-
-    const decrementQueenRooms = () => {
-        setQueenRooms((prevQueenRooms) => prevQueenRooms - 1);
-    };
-
-    const incrementQueenRooms = () => {
-        setQueenRooms((prevQueenRooms) => prevQueenRooms + 1);
-    };
-
-    const handleClick = async () => {
-        const userId = user._id;
-        const reservation = {
-            startDate,
-            endDate,
-            kingRooms,
-            queenRooms,
-            userId,
-            hotelId,
-            hotelName,
-        };
-        try {
-            const response = await axios.post(`http://localhost:8800/api/reservation`, reservation);
-            window.alert(`Your reservation is successful!`);
-            setOpen(false);
-            navigate("/");
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
-
-
+const ReserveComponent= ({ setOpen, hotelId, hotelName, kingRooms, queenRooms, startDate, endDate, handleStartDateChange, handleEndDateChange,
+                         decrementQueenRooms, decrementKingRooms, incrementKingRooms, incrementQueenRooms, handleClick}) => {
     return (
         <div className="w-100 h-100 bg-light d-flex align-items-center justify-content-center top-0 start-0" style={{ position: 'fixed' }}>
             <div className="bg-white p-4" style={{ position: 'relative' }}>
