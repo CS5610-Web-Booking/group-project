@@ -144,8 +144,8 @@ return (
                         <p>Hotel Name: {reservation.hotelName}</p>
                         <p>Start Date: {reservation.startDate.slice(0, 10)}</p>
                         <p>End Date: {reservation.endDate.slice(0, 10)}</p>
-                        <p>King Room: {reservation.kingRooms}</p>
-                        <p>Queen Room: {reservation.queenRooms}</p>
+                        <p>King Room(s): {reservation.kingRooms}</p>
+                        <p>Queen Room(s): {reservation.queenRooms}</p>
                     </div>
                     ))}
                   </div>):(<p>No reservations</p>)}
